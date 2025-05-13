@@ -23,13 +23,13 @@ export default function Home() {
   }
 
     return (
-    <div className="relative min-h-screen w-full overflow-hidden px-6">
+    <div className="relative h-screen w-full overflow-hidden px-6 py-10">
       <div
         className="absolute inset-0 bg-center bg-cover filter blur-sm brightness-75"
         style={{ backgroundImage: "url('/weatherbg/weatherbg.jpg')" }}
       ></div>
 
-      <div className="relative mx-auto p-4 mt-20 w-full rounded-lg overflow-hidden shadow-lg bg-cover h-80 justify-center"
+      <div className="container h-full relative mx-auto p-4 w-full rounded-lg overflow-hidden shadow-lg bg-cover justify-center"
           style={{backgroundImage: "url('/weatherbg/weatherbg.jpg')"}}>
         <div className="backdrop-none bg-opacity-30 p-4 rounded-lg shadow-inner">
           <div className="text-slate-800 font-semibold mb-8">
