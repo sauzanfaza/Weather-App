@@ -1,14 +1,12 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
-import {FiSearch} from 'react-icons/fi'
+import {useState } from "react"
+import Search from "@/components/search";
+import WeatherSearch from "@/components/WeatherSearch";
 
 export default function Home() {
-  const [city, setCity] = useState('');
   const [weather, setWeather] = useState({});
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-
+  const handleSearch = (city) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHERAPP_KEY}`
 
     axios.get(url)
@@ -19,48 +17,22 @@ export default function Home() {
       alert("gagal mendapatkan cuaca", err)
     })
 
-    setCity("");
   }
 
-    return (
-    <div className="relative h-screen w-full overflow-hidden px-6 py-10">
-      <div
-        className="absolute inset-0 bg-center bg-cover filter blur-sm brightness-75"
-        style={{ backgroundImage: "url('/weatherbg/weatherbg.jpg')" }}
-      ></div>
+  
 
-      <div className="container h-full relative mx-auto p-4 w-full rounded-lg overflow-hidden shadow-lg bg-cover justify-center"
-          style={{backgroundImage: "url('/weatherbg/weatherbg.jpg')"}}>
-        <div className="backdrop-none bg-opacity-30 p-4 rounded-lg shadow-inner">
-          <div className="text-slate-800 font-semibold mb-8">
-          <form onSubmit={handleSearch} className="flex items-center gap-2 w-full max-w-md">
-            <input type="text" 
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                placeholder="find city"
-                className="bg-slate-100  rounded-3xl md:rounded-4xl p-2 md:p-6 mr-2 w-full focus:outline-green-500"
-            />
-            <button type="submit" className="text-white rounded-3xl py-2 whitespace-nowrap">
-              <FiSearch className="text-xl md:text-4xl hover:cursor-pointer"/>
-            </button>
-          </form>
-          </div>
-          
-          <h1 className="text-white text-3xl md:text-4xl ml-4 font-bold mb-2">
-            {weather.name || "Loading..."}
-          </h1>
-          {weather.main && weather.weather && (
-            <>
-              <p className="text-opacity-90 font-semibold text-white break-words text-3xl ml-4">
-                {weather.weather[0].main} - {weather.weather[0].description}
-              </p>
-              <p className="text-xl ml-4 font-semibold mt2 text-white">
-                {Math.round(weather.main.temp)}°C
-              </p>
-            </>
-          )}
+    return (
+      <div className="relative h-screen w-full bg-cover overflow-hidden"
+        style={{backgroundImage: "url('/weatherbg/weatherbg.jpg')"}}>
+      <div className="grid grid-cols-1 md:grid-cols-2 ">
+        <div>
+        <Search onSearch={handleSearch}/>
+        <WeatherSearch weather={weather} setWeather={setWeather}/>
+        </div>
+        <div>
+          2
         </div>
       </div>
-    </div>
+      </div>
   );
 }
