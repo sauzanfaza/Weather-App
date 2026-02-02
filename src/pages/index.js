@@ -1,7 +1,8 @@
 import axios from "axios"
 import {useState } from "react"
-import Search from "@/components/search";
+import Search from "@/components/Search";
 import WeatherSearch from "@/components/WeatherSearch";
+import Times from "@/components/Times";
 
 export default function Home() {
   const [weather, setWeather] = useState({});
@@ -19,18 +20,16 @@ export default function Home() {
 
   }
 
-  
-
     return (
-      <div className="relative h-screen w-full bg-cover overflow-hidden"
+      <div className="relative h-screen w-full bg-cover overflow-hidden p-4"
         style={{backgroundImage: "url('/weatherbg/weatherbg.jpg')"}}>
-      <div className="grid grid-cols-1 md:grid-cols-2 ">
-        <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 p-6 lg:px-8 lg:py-10">
+        <div className="mb-4">
         <Search onSearch={handleSearch}/>
         <WeatherSearch weather={weather} setWeather={setWeather}/>
         </div>
-        <div>
-          2
+        <div className="flex justify-center md:justify-end">
+          <Times weather={weather} setWeather={setWeather}/>
         </div>
       </div>
       </div>

@@ -19,9 +19,9 @@ export default function Search({onSearch}) {
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
                 placeholder="find city"
-                className="bg-slate-100  rounded-3xl md:rounded-4xl p-2 md:px-6 md:py-4 mr-2 w-full focus:outline-green-500"
+                className="bg-slate-100 shadow-xl rounded-3xl md:rounded-4xl text-[12px] md:text-md lg:text-2xl p-2 md:px-6 md:py-3 xl:py-4 xl:px-8 mr-2 w-full focus:outline-green-500"
             />
-            <button type="submit" className="text-white rounded-3xl py-2 whitespace-nowrap">
+            <button type="submit" className="text-white rounded-3xl shadow-2xl py-2 whitespace-nowrap">
               <FiSearch className="text-xl md:text-4xl hover:cursor-pointer"/>
             </button>
           </form>
