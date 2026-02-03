@@ -3,13 +3,13 @@ export default function WeatherSearch({weather, setWeather}) {
 <div className="
   relative
   min-w-60 md:min-w-80 xl:w-[400px]
-  min-h-24 md:min-h-40 xl:min-h-48
+  min-h-20 md:min-h-40 xl:min-h-48
   rounded-xl
   text-white
   flex flex-col
   bg-white/10 backdrop-blur-xl
   shadow-md
-  p-4 lg:p-6
+  p-2 lg:p-6
   text-center
   md:text-left
 ">

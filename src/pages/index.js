@@ -3,6 +3,7 @@ import {useState } from "react"
 import Search from "@/components/Search";
 import WeatherSearch from "@/components/WeatherSearch";
 import Times from "@/components/Times";
+import ForecastPanel from "@/components/ForecastPanel";
 
 export default function Home() {
   const [weather, setWeather] = useState({});
@@ -21,17 +22,20 @@ export default function Home() {
   }
 
     return (
-      <div className="relative h-screen w-full bg-cover overflow-hidden p-4"
+      <div className="relative min-h-screen w-full bg-cover p-4"
         style={{backgroundImage: "url('/weatherbg/weatherbg.jpg')"}}>
-      <div className="grid grid-cols-1 md:grid-cols-2 p-6 lg:px-8 lg:py-10">
-        <div className="mb-4">
-        <Search onSearch={handleSearch}/>
-        <WeatherSearch weather={weather} setWeather={setWeather}/>
+        <div className="grid grid-cols-1 md:grid-cols-2 p-6 lg:px-8 lg:py-18">
+          <div className="mb-4">
+            <Search onSearch={handleSearch}/>
+            <WeatherSearch weather={weather} setWeather={setWeather}/>
+          </div>
+          <div className="flex justify-center md:justify-end">
+            <Times weather={weather} setWeather={setWeather}/>
+          </div>
         </div>
-        <div className="flex justify-center md:justify-end">
-          <Times weather={weather} setWeather={setWeather}/>
+        <div>
+          <ForecastPanel weather={weather} setWeather={setWeather}/>
         </div>
-      </div>
       </div>
   );
 }
