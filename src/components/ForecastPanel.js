@@ -12,7 +12,7 @@ export default function ForecastPanel({weather}) {
         <>
         <div className="fixed bottom-0 left-0 mt-4 h-72 lg:h-70 w-full text-white flex flex-col bg-white/10 backdrop-blur-xl shadow-md overflow-y-auto overscroll-contain z-50 p-4 lg:p-6">
             <div className="md:p-2 text-xl">
-                <h1>Today's Forecast</h1>
+                <h1>Todays Forecast</h1>
             </div>
             <hr className="border-t border-white/30"></hr>
             <div className="grid grid-cols-2 lg:p-10 p-6 text-[14px] lg:text-2xl">
